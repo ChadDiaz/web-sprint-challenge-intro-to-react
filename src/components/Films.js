@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const CharacterEmphasis = styled.span`
-  font-size: 1rem;
+  font-size: .90rem;
   text-transform: capitalize;
   text-align: center;
 `;
@@ -10,7 +10,7 @@ const CharacterEmphasis = styled.span`
 const StyledH1 = styled.h1`
   margin: 3px 2px 3px 6px;
   padding: 2px 2px;
-  border: 3px solid black;
+  border-top: 3px solid black;
   width: 96%;
   
 `;
