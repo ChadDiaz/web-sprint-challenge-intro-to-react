@@ -17,7 +17,7 @@ const App = () => {
   
   return (
     <div className="App">
-      <h1 className="Header">Species List from Star Wars</h1>
+      <h1 className="Header">Species List from The Star Wars Movies</h1>
       {species.map((character , index) => {
         return  <Characters key={index} person={character} />
       })}

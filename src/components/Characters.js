@@ -13,7 +13,7 @@ const Characters = ({person}) => {
                 designation={person.designation}
                 classification={person.classification}
                 lifeSpan={person.average_lifespan}/>
-            <Films numFilms={person.films} />
+            <Films numFilms={person.films} name={person.name}/>
         </div>
     )
 }
