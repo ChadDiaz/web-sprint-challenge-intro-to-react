@@ -3,7 +3,18 @@ import './App.css';
 import axios from 'axios'
 import styled from 'styled-components'
 import Characters from './components/Characters';
+import Title from './components/Title';
 
+
+const CharacterCard = styled.div`
+  display: flex;
+  
+  flex-wrap: wrap;
+  justify-content: center;
+  text-transform: capitalize;
+  font-family: "Courier New";
+  width: 100%;
+`;
 
 const App = () => {
   const [species, setSpecies] = useState([]);
@@ -16,12 +27,13 @@ const App = () => {
   }, [])
   
   return (
-    <div className="App">
-      <h1 className="Header">Species List from The Star Wars Movies</h1>
+    <CharacterCard>
+      <Title  />
+         
       {species.map((character , index) => {
         return  <Characters key={index} person={character} />
       })}
-    </div>
+    </CharacterCard>
   );
 }
 
