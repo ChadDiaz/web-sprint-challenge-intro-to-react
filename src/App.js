@@ -8,7 +8,6 @@ import Title from './components/Title';
 
 const CharacterCard = styled.div`
   display: flex;
-  
   flex-wrap: wrap;
   justify-content: center;
   text-transform: capitalize;
@@ -27,13 +26,15 @@ const App = () => {
   }, [])
   
   return (
+    <>
+    <Title />
     <CharacterCard>
-      <Title  />
-         
-      {species.map((character , index) => {
+        
+        {species.map((character , index) => {
         return  <Characters key={index} person={character} />
       })}
     </CharacterCard>
+    </>
   );
 }
 
