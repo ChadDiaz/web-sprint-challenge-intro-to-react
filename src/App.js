@@ -1,18 +1,40 @@
-import React from 'react';
+import React, { useEffect , useState } from 'react';
 import './App.css';
+import axios from 'axios'
+import styled from 'styled-components'
+import Characters from './components/Characters';
+import Title from './components/Title';
+
+
+const CharacterCard = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-transform: capitalize;
+  font-family: "Courier New";
+  width: 100%;
+`;
 
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
+  const [species, setSpecies] = useState([]);
 
-  // Fetch characters from the API in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
-
+  useEffect(() => {
+    axios.get("https://swapi.dev/api/species/")
+    .then(response => {
+      return setSpecies(response.data.results)
+    }).catch(err => console.log("Error" , err))
+  }, [])
+  
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
-    </div>
+    <>
+    <Title />
+    <CharacterCard>
+        
+        {species.map((character , index) => {
+        return  <Characters key={index} person={character} />
+      })}
+    </CharacterCard>
+    </>
   );
 }
 
